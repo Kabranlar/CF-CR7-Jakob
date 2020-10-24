@@ -1,0 +1,60 @@
+<div class="container mt-5">
+  <form [formGroup]="addTravelForm" (ngSubmit)="onSubmit(addTravelForm.value)">
+    <div class="form-group row">
+      <label for="destination" class="col-sm-2 col-form-label">Destination</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="destination" formControlName="destination">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="description" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="description" formControlName="description">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="startDate" class="col-sm-2 col-form-label">Start Date</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="startDate" formControlName="startDate">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="duration" class="col-sm-2 col-form-label">Duration</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="duration" formControlName="duration">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="price" class="col-sm-2 col-form-label">Price</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="price" formControlName="price">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="file" class="col-sm-2 col-form-label">Image (URL)</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="file" formControlName="img">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <input type="submit" class="btn btn-primary " value="Submit">
+      </div>
+    </div>
+  </form>
+</div>
+<!-- printing travel cards -->
+<div class="container row m-auto">
+  <div class="card col-sm-12 col-lg-4 mt-sm-5 mb-lg-5" style="width: 18rem;" *ngFor="let trip of travels">
+    <img class="card-img-top mt-2 mx-auto" src="{{trip.img}}" alt="{{trip.destination}}" style="height: 10rem; object-fit: cover; overflow: hidden;" (click)="addToCart(trip)">
+    <div class="card-body">
+      <h5 class="card-title">{{trip.destination}}</h5>
+      <p class="card-text">{{trip.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{trip.startDate}}</li>
+      <li class="list-group-item">{{trip.duration}}</li>
+      <li class="list-group-item">{{trip.price | currency:'EUR'}}</li>
+    </ul>
+  </div>
+</div>

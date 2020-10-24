@@ -1,0 +1,8 @@
+.content{
+	/* to right -> gradient flows from left to right */
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('/assets/img/hero.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	height: 40rem;
+}
